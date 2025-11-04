@@ -3,3 +3,6 @@
 
 --insert or ignore into customers (id, customer_id, first_name, last_name, mobile_number, address) values
 --(1, 123456, 'ali', 'rezaii', 09123456070, 'street, number')
+
+--insert or ignore into employees (id, employee_id, first_name, last_name, occupation, username, password) values
+--(1, 123456, 'reza', 'alipour', 'repairman', 'reza123', 'rz123456')

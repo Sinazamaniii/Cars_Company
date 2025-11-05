@@ -2,7 +2,8 @@ from tools.car_validator import *
 
 
 class Car:
-    def __init__(self, car_id, brand, model, year, price):
+    def __init__(self,id, car_id, brand, model, year, price):
+        self.id = id
         self.car_id = car_id
         self.brand = brand
         self.model = model
@@ -15,9 +16,8 @@ class Car:
         year_validator(self.year)
         price_validator(self.price)
 
-
     def __repr__(self):
         return f"{self.__dict__}"
 
     def to_tuple(self):
-        return tuple((self.car_id, self.brand, self.model, self.year, self.price))
+        return tuple((self.id, self.car_id, self.brand, self.model, self.year, self.price))

@@ -24,9 +24,8 @@ def year_validator(year):
         return int(year)
 
 
-
 def price_validator(price):
-        if not (type(price) == int or type(price) == float) or price <= 0:
-            raise ValueError("Invalid price !!!")
-        else:
-            return price
+    if not (type(price) == int or type(price) == float) or price <= 0:
+        raise ValueError("Invalid price !!!")
+    else:
+        return price

@@ -2,7 +2,8 @@ from tools.customer_validator import *
 
 
 class Customer:
-    def __init__(self, customer_id, first_name, last_name, mobile_number, address):
+    def __init__(self, id, customer_id, first_name, last_name, mobile_number, address):
+        self.id = id
         self.customer_id = customer_id
         self.first_name = first_name
         self.last_name = last_name
@@ -15,10 +16,8 @@ class Customer:
         mobile_number_validator(self.mobile_number)
         address_validator(self.address)
 
-
-
     def __repr__(self):
-            return f"{self.__dict__}"
+        return f"{self.__dict__}"
 
     def to_tuple(self):
-        return tuple((self.customer_id, self.first_name, self.last_name, self.mobile_number, self.address))
+        return tuple((self.id, self.customer_id, self.first_name, self.last_name, self.mobile_number, self.address))

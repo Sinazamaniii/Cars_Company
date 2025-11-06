@@ -1,7 +1,6 @@
 import re
 
 
-
 def first_name_validator(first_name):
     if not (type(first_name) == str and re.match(r"^[a-zA-Z\s]{3,30}$", first_name)):
         raise ValueError("Invalid first_name !!!")
@@ -22,8 +21,9 @@ def mobile_number_validator(mobile_number):
     else:
         return mobile_number
 
+
 def address_validator(address):
-    if not (type(address) == str and re.match(r"^[\w,\-]{3,100}$", address)):
+    if not (type(address) == str and re.match(r"^[0-9a-zA-Z\s]{3,100}$", address)):
         raise ValueError("Invalid address !!!")
     else:
         return address

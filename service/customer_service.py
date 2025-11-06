@@ -10,17 +10,17 @@ class CustomerService:
 
     @classmethod
     def update(cls, customer):
-        customer_result = cls.customer_repository.find_by_id(customer.customer_id)
+        customer_result = cls.customer_repository.find_by_id(customer.id)
         if customer_result:
             return cls.customer_repository.update(customer)
         else:
             raise Exception("Customer Not Found !!!")
 
     @classmethod
-    def delete(cls, customer_id):
-        customer = cls.customer_repository.find_by_id(customer_id)
+    def delete(cls, id):
+        customer = cls.customer_repository.find_by_id(id)
         if customer:
-            cls.customer_repository.delete(customer_id)
+            cls.customer_repository.delete(id)
             return customer
         else:
             raise Exception("Customer Not Found !!!")
@@ -30,8 +30,8 @@ class CustomerService:
         return cls.customer_repository.find_all()
 
     @classmethod
-    def find_by_id(cls, customer_id):
-        customer = cls.customer_repository.find_by_id(customer_id)
+    def find_by_id(cls, id):
+        customer = cls.customer_repository.find_by_id(id)
         if customer:
             return customer
         else:

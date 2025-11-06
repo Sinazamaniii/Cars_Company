@@ -16,14 +16,14 @@ def last_name_validator(last_name):
 
 
 def mobile_number_validator(mobile_number):
-    if not (type(mobile_number) == str and re.match(r"^(09|\+989)\d{9}$", mobile_number)):
+    if not (type(mobile_number) == str and re.match(r"^(09|\+98)\d{10}$", mobile_number)):
         raise ValueError("Invalid mobile_number !!!")
     else:
         return mobile_number
 
 
 def address_validator(address):
-    if not (type(address) == str and re.match(r"^[0-9a-zA-Z\s]{3,100}$", address)):
+    if not (type(address) == str and re.match(r"^[0-9a-zA-Z\s,]{3,100}$", address)):
         raise ValueError("Invalid address !!!")
     else:
         return address

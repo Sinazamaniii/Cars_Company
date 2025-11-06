@@ -83,7 +83,7 @@ class CarView:
 
     def select_car(self):
         if self.id.get():
-            status, Session.bank = CarController.find_by_id(self.id.get())
+            status, Session.car = CarController.find_by_id(self.id.get())
         else:
             messagebox.showerror("Select", "Select Car")
 

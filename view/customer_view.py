@@ -92,5 +92,5 @@ class CustomerView:
         pass
 
 
-if __name__ == "__main__":
-    CustomerView()
+# if __name__ == "__main__":
+#     CustomerView()

@@ -91,5 +91,5 @@ class CarView:
         pass
 
 
-if __name__ == "__main__":
-    CarView()
+# if __name__ == "__main__":
+#     CarView()

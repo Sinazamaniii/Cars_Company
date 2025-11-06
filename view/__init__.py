@@ -9,3 +9,4 @@ from view.component.table import Table
 # from view.dashboard import DashboardView
 
 from view.car_view import CarView
+from view.customer_view import CustomerView

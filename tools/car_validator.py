@@ -3,14 +3,14 @@ import datetime
 
 
 def brand_validator(brand):
-    if not (type(brand) == str and re.match(r"^[a-zA-Z\s]{2,20}$", brand)):
+    if not (type(brand) == str and re.match(r"^[0-9a-zA-Z\s]{2,20}$", brand)):
         raise ValueError("Invalid brand !!!")
     else:
         return brand
 
 
 def model_validator(model):
-    if not (type(model) == str and re.match(r"^[a-zA-Z\s]{2,20}$", model)):
+    if not (type(model) == str and re.match(r"^[0-9a-zA-Z\s]{2,20}$", model)):
         raise ValueError("Invalid model !!!")
     else:
         return model

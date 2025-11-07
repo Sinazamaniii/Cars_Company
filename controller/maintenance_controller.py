@@ -2,11 +2,12 @@ from model import Maintenance
 from service import MaintenanceService
 from tools import Logger
 
+
 class MaintenanceController:
     @classmethod
-    def save(cls, car_id, employee_id, service_type, cost):
+    def save(cls, maintenance_id, car_id, employee_id, service_type, cost):
         try:
-            maintenance = Maintenance(None, car_id, employee_id, service_type, cost)
+            maintenance = Maintenance(None, maintenance_id, car_id, employee_id, service_type, cost)
             maintenance.validate()
             maintenance = MaintenanceService.save(maintenance)
             Logger.info(f"Maintenance {maintenance} saved")
@@ -16,9 +17,9 @@ class MaintenanceController:
             return False, e
 
     @classmethod
-    def update(cls, maintenance_id, car_id, employee_id, service_type, cost):
+    def update(cls, id, maintenance_id, car_id, employee_id, service_type, cost):
         try:
-            maintenance = Maintenance(maintenance_id, car_id, employee_id, service_type, cost)
+            maintenance = Maintenance(id, maintenance_id, car_id, employee_id, service_type, cost)
             maintenance.validate()
             maintenance = MaintenanceService.update(maintenance)
             Logger.info(f"Maintenance {maintenance} updated")
@@ -28,9 +29,9 @@ class MaintenanceController:
             return False, e
 
     @classmethod
-    def delete(cls, maintenance_id):
+    def delete(cls, id):
         try:
-            maintenance = MaintenanceService.delete(maintenance_id)
+            maintenance = MaintenanceService.delete(id)
             Logger.info(f"Maintenance {maintenance} deleted")
             return True, f"Maintenance Deleted Successfully"
         except Exception as e:
@@ -48,11 +49,11 @@ class MaintenanceController:
             return False, e
 
     @classmethod
-    def find_by_id(cls, maintenance_id):
+    def find_by_id(cls, id):
         try:
-            maintenance = MaintenanceService.find_by_id(maintenance_id)
-            Logger.info(f"Maintenance FindById {maintenance_id}")
+            maintenance = MaintenanceService.find_by_id(id)
+            Logger.info(f"Maintenance FindById {id}")
             return True, maintenance
         except Exception as e:
-            Logger.error(f"{e} With Id {maintenance_id}")
+            Logger.error(f"{e} With Id {id}")
             return False, e

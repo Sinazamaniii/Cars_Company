@@ -10,17 +10,17 @@ class MaintenanceService:
 
     @classmethod
     def update(cls, maintenance):
-        maintenance_result = cls.maintenance_repository.find_by_id(maintenance.maintenance_id)
+        maintenance_result = cls.maintenance_repository.find_by_id(maintenance.id)
         if maintenance_result:
             return cls.maintenance_repository.update(maintenance)
         else:
             raise Exception("Maintenance Not Found !!!")
 
     @classmethod
-    def delete(cls, maintenance_id):
-        maintenance = cls.maintenance_repository.find_by_id(maintenance_id)
+    def delete(cls, id):
+        maintenance = cls.maintenance_repository.find_by_id(id)
         if maintenance:
-            cls.maintenance_repository.delete(maintenance_id)
+            cls.maintenance_repository.delete(id)
             return maintenance
         else:
             raise Exception("Maintenance Not Found !!!")
@@ -30,8 +30,8 @@ class MaintenanceService:
         return cls.maintenance_repository.find_all()
 
     @classmethod
-    def find_by_id(cls, maintenance_id):
-        maintenance = cls.maintenance_repository.find_by_id(maintenance_id)
+    def find_by_id(cls, id):
+        maintenance = cls.maintenance_repository.find_by_id(id)
         if maintenance:
             return maintenance
         else:

@@ -14,8 +14,8 @@ class SaleRepository:
     def save(self, sale):
         self.connect()
         self.cursor.execute(
-            "insert into sales (sale_id, car_id, customer_id, employee_id, date, final_cost) values (?,?,?,?,?,?)",
-            [sale.sale_id, sale.car_id, sale.customer_id, sale.employee_id, sale.date,
+            "insert into sales (sale_id, car_id, customer_id, employee_id, date_time, final_cost) values (?,?,?,?,?,?)",
+            [sale.sale_id, sale.car_id, sale.customer_id, sale.employee_id, sale.date_time,
              sale.final_cost])
         sale.id = self.cursor.lastrowid
         self.connection.commit()
@@ -25,8 +25,8 @@ class SaleRepository:
     def update(self, sale):
         self.connect()
         self.cursor.execute(
-            "update sales set sale_id = ?, car_id = ?, customer_id = ?, employee_id = ?, date = ?, final_cost = ? where id = ?",
-            [sale.sale_id, sale.car_id, sale.customer_id, sale.employee_id, sale.date,
+            "update sales set sale_id = ?, car_id = ?, customer_id = ?, employee_id = ?, date_time = ?, final_cost = ? where id = ?",
+            [sale.sale_id, sale.car_id, sale.customer_id, sale.employee_id, sale.date_time,
              sale.final_cost, sale.id])
         self.connection.commit()
         self.disconnect()

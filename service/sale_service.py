@@ -10,17 +10,17 @@ class SaleService:
 
     @classmethod
     def update(cls, sale):
-        sale_result = cls.sale_repository.find_by_id(sale.sale_id)
+        sale_result = cls.sale_repository.find_by_id(sale.id)
         if sale_result:
             return cls.sale_repository.update(sale)
         else:
             raise Exception("Sale Not Found !!!")
 
     @classmethod
-    def delete(cls, sale_id):
-        sale = cls.sale_repository.find_by_id(sale_id)
+    def delete(cls, id):
+        sale = cls.sale_repository.find_by_id(id)
         if sale:
-            cls.sale_repository.delete(sale_id)
+            cls.sale_repository.delete(id)
             return sale
         else:
             raise Exception("Sale Not Found !!!")
@@ -30,8 +30,8 @@ class SaleService:
         return cls.sale_repository.find_all()
 
     @classmethod
-    def find_by_id(cls, sale_id):
-        sale = cls.sale_repository.find_by_id(sale_id)
+    def find_by_id(cls, id):
+        sale = cls.sale_repository.find_by_id(id)
         if sale:
             return sale
         else:

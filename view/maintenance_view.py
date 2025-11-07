@@ -2,12 +2,11 @@ from view import *
 from model import Maintenance, Session
 from controller import MaintenanceController
 
-#id, maintenance_id, car_id, employee_id, service_type, cost)
 
 class MaintenanceView:
     def __init__(self):
         self.window = Tk()
-        self.window.geometry("800x350")
+        self.window.geometry("840x350")
         self.window.title("Maintenance")
 
         self.id = LabelWithEntry(self.window, "Id", 20, 20, data_type=IntVar, state="readonly")
@@ -25,7 +24,6 @@ class MaintenanceView:
             14,
             self.select_from_table)
 
-
         Button(self.window, text="Select Maintenance", width=19, command=self.select_maintenance).place(x=20, y=260)
         Button(self.window, text="Refresh", width=7, command=self.refresh).place(x=180, y=260)
         Button(self.window, text="Save", width=7, command=self.save_click).place(x=20, y=300)
@@ -34,11 +32,10 @@ class MaintenanceView:
         self.reset_form()
         self.window.mainloop()
 
-    # id, maintenance_id, car_id, employee_id, service_type, cost)
-
     def save_click(self):
-        status, message = MaintenanceController.save(self.maintenance_id.get(), self.car_id.get(), self.employee_id.get(), self.service_type.get(),
-                                             self.cost.get())
+        status, message = MaintenanceController.save(self.maintenance_id.get(), self.car_id.get(),
+                                                     self.employee_id.get(), self.service_type.get(),
+                                                     self.cost.get())
         if status:
             messagebox.showinfo("Maintenance Saved", message)
             self.reset_form()
@@ -46,8 +43,8 @@ class MaintenanceView:
             messagebox.showerror("Maintenance Save Error", message)
 
     def edit_click(self):
-        status, message = MaintenanceController.update(self.id.get(), self.maintenance_id.get(), self.car_id.get(), self.employee_id.get(),
-                                               self.service_type.get(), self.cost.get())
+        status, message = MaintenanceController.update(self.id.get(), self.maintenance_id.get(), self.car_id.get(),
+                                                       self.employee_id.get(), self.service_type.get(), self.cost.get())
         if status:
             messagebox.showinfo("Maintenance Updated", message)
             self.reset_form()
@@ -61,7 +58,6 @@ class MaintenanceView:
             self.reset_form()
         else:
             messagebox.showerror("Maintenance Delete Error", message)
-
 
     def reset_form(self):
         self.id.set(0)
@@ -94,7 +90,5 @@ class MaintenanceView:
     def refresh(self):
         pass
 
-
-if __name__ == "__main__":
-    MaintenanceView()
-
+# if __name__ == "__main__":
+#     MaintenanceView()

@@ -8,7 +8,6 @@ def car_id_validator(car_id):
         return car_id
 
 
-
 def employee_id_validator(employee_id):
     if not (type(employee_id) == int and employee_id > 0):
         raise ValueError("Invalid employee_id !!!")
@@ -28,5 +27,3 @@ def cost_validator(cost):
         raise ValueError("Invalid cost !!!")
     else:
         return float(cost)
-
-

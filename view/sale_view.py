@@ -2,12 +2,11 @@ from view import *
 from model import Sale, Session
 from controller import SaleController
 
-# id, sale_id, car_id, customer_id, employee_id, date_time, final_cost
 
 class SaleView:
     def __init__(self):
         self.window = Tk()
-        self.window.geometry("1000x370")
+        self.window.geometry("980x370")
         self.window.title("Sale")
 
         self.id = LabelWithEntry(self.window, "Id", 20, 20, data_type=IntVar, state="readonly")
@@ -16,14 +15,14 @@ class SaleView:
         self.customer_id = LabelWithEntry(self.window, "CustomerId", 20, 140, data_type=IntVar)
         self.employee_id = LabelWithEntry(self.window, "EmployeeId", 20, 180, data_type=IntVar)
         self.date_time = LabelWithEntry(self.window, "DateTime", 20, 220)
-        self.final_cost = LabelWithEntry(self.window, "FinalCost", 20, 260)
+        self.final_cost = LabelWithEntry(self.window, "FinalCost", 20, 260, data_type=IntVar)
 
         self.table = Table(
             self.window,
             ["Id", "SaleId", "CarId", "CustomerId", "EmployeeId", "DateTime", "FinalCost"],
-            [40, 100, 100, 100, 100, 100, 100],
+            [40, 100, 100, 100, 100, 130, 100],
             270, 20,
-            14,
+            15,
             self.select_from_table
         )
 
@@ -35,11 +34,10 @@ class SaleView:
         self.reset_form()
         self.window.mainloop()
 
-        # id, sale_id, car_id, customer_id, employee_id, date_time, final_cost
-
     def save_click(self):
-        status, message = SaleController.save(self.sale_id.get(), self.car_id.get(), self.customer_id.get(), self.employee_id.get(),
-                                             self.date_time.get(), self.final_cost.get())
+        status, message = SaleController.save(self.sale_id.get(), self.car_id.get(), self.customer_id.get(),
+                                              self.employee_id.get(),
+                                              self.date_time.get(), self.final_cost.get())
         if status:
             messagebox.showinfo("Sale Saved", message)
             self.reset_form()
@@ -47,8 +45,9 @@ class SaleView:
             messagebox.showerror("Sale Save Error", message)
 
     def edit_click(self):
-        status, message = SaleController.update(self.id.get(), self.sale_id.get(), self.car_id.get(), self.customer_id.get(), self.employee_id.get(),
-                                               self.date_time.get(), self.final_cost.get())
+        status, message = SaleController.update(self.id.get(), self.sale_id.get(), self.car_id.get(),
+                                                self.customer_id.get(), self.employee_id.get(),
+                                                self.date_time.get(), self.final_cost.get())
         if status:
             messagebox.showinfo("Sale Updated", message)
             self.reset_form()
@@ -62,8 +61,6 @@ class SaleView:
             self.reset_form()
         else:
             messagebox.showerror("Sale Delete Error", message)
-
-            # id, sale_id, car_id, customer_id, employee_id, date_time, final_cost
 
     def reset_form(self):
         self.id.set(0)
@@ -98,6 +95,5 @@ class SaleView:
     def refresh(self):
         pass
 
-
-if __name__ == "__main__":
-    SaleView()
+# if __name__ == "__main__":
+#     SaleView()

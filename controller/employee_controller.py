@@ -5,9 +5,9 @@ from tools.logging import Logger
 
 class EmployeeController:
     @classmethod
-    def save(cls, first_name, last_name, occupation, username, password):
+    def save(cls, employee_id, first_name, last_name, occupation, username, password):
         try:
-            employee = Employee(None, first_name, last_name, occupation, username, password)
+            employee = Employee(None, employee_id, first_name, last_name, occupation, username, password)
             employee.validate()
             employee = EmployeeService.save(employee)
             Logger.info(f"Employee {employee} saved")
@@ -17,9 +17,9 @@ class EmployeeController:
             return False, e
 
     @classmethod
-    def update(cls, employee_id, first_name, last_name, occupation, username, password):
+    def update(cls, id, employee_id, first_name, last_name, occupation, username, password):
         try:
-            employee = Employee(employee_id, first_name, last_name, occupation, username, password)
+            employee = Employee(id, employee_id, first_name, last_name, occupation, username, password)
             employee.validate()
             employee = EmployeeService.update(employee)
             Logger.info(f"Employee {employee} updated")
@@ -29,9 +29,9 @@ class EmployeeController:
             return False, e
 
     @classmethod
-    def delete(cls, employee_id):
+    def delete(cls, id):
         try:
-            employee = EmployeeService.delete(employee_id)
+            employee = EmployeeService.delete(id)
             Logger.info(f"Employee {employee} deleted")
             return True, f"Employee Deleted Successfully"
         except Exception as e:
@@ -49,13 +49,11 @@ class EmployeeController:
             return False, e
 
     @classmethod
-    def find_by_id(cls, employee_id):
+    def find_by_id(cls, id):
         try:
-            employee = EmployeeService.find_by_id(employee_id)
-            Logger.info(f"Employee FindById {employee_id}")
+            employee = EmployeeService.find_by_id(id)
+            Logger.info(f"Employee FindById {id}")
             return True, employee
         except Exception as e:
-            Logger.error(f"{e} With Id {employee_id}")
+            Logger.error(f"{e} With Id {id}")
             return False, e
-
-

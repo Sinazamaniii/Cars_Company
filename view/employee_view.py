@@ -2,17 +2,17 @@ from view import *
 from model import Employee, Session
 from controller import EmployeeController
 
+
 class EmployeeView:
     def __init__(self):
-        self.window=Tk()
+        self.window = Tk()
         self.window.title("Employee")
         self.window.geometry("1000x400")
 
-
-#id, employee_id, first_name, last_name, occupation, username, password)
+        # id, employee_id, first_name, last_name, occupation, username, password)
 
         self.id = LabelWithEntry(self.window, "Id", 20, 20, data_type=IntVar, state="readonly")
-        self.employee_id = LabelWithEntry(self.window, "EmployeeId", 20, 60, data_type=IntVar, state="readonly")
+        self.employee_id = LabelWithEntry(self.window, "EmployeeId", 20, 60, data_type=IntVar)
         self.first_name = LabelWithEntry(self.window, "FirstName", 20, 100)
         self.last_name = LabelWithEntry(self.window, "LastName", 20, 140)
         self.occupation = LabelWithEntry(self.window, "Occupation", 20, 180)
@@ -20,11 +20,11 @@ class EmployeeView:
         self.password = LabelWithEntry(self.window, "Password", 20, 260)
 
         self.table = Table(self.window,
-                       ["Id", "EmployeeId", "FirstName", "LastName", "Occupation", "Username", "Password"],
-                       [40, 100, 100, 100, 100, 100, 100, 100],
-                       270, 20,
-                       16,
-                       self.select_from_table)
+                           ["Id", "EmployeeId", "FirstName", "LastName", "Occupation", "Username", "Password"],
+                           [40, 100, 100, 100, 100, 100, 100, 100],
+                           270, 20,
+                           16,
+                           self.select_from_table)
 
         Button(self.window, text="Select Employee", width=19, command=self.select_employee).place(x=20, y=300)
         Button(self.window, text="Refresh", width=7, command=self.refresh).place(x=180, y=300)
@@ -36,10 +36,9 @@ class EmployeeView:
 
         # id, employee_id, first_name, last_name, occupation, username, password)
 
-
     def save_click(self):
-        status, message = EmployeeController.save(self.employee_id.get(), self.first_name.get(), self.last_name.get(), self.occupation.get(),
-                                             self.username.get(), self.password.get())
+        status, message = EmployeeController.save(self.employee_id.get(), self.first_name.get(), self.last_name.get(),
+                                                  self.occupation.get(), self.username.get(), self.password.get())
         if status:
             messagebox.showinfo("Employee Saved", message)
             self.reset_form()
@@ -47,8 +46,9 @@ class EmployeeView:
             messagebox.showerror("Employee Save Error", message)
 
     def edit_click(self):
-        status, message = EmployeeController.update(self.id.get(), self.employee_id.get(), self.first_name.get(), self.last_name.get(),
-                                               self.occupation.get(), self.username.get(), self.password.get())
+        status, message = EmployeeController.update(self.id.get(), self.employee_id.get(), self.first_name.get(),
+                                                    self.last_name.get(), self.occupation.get(), self.username.get(),
+                                                    self.password.get())
         if status:
             messagebox.showinfo("Employee Updated", message)
             self.reset_form()
@@ -96,5 +96,5 @@ class EmployeeView:
     def refresh(self):
         pass
 
-#if __name__ == "__main__":
-     #EmployeeView()
+# if __name__ == "__main__":
+# EmployeeView()

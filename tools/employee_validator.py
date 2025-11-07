@@ -2,7 +2,7 @@ import re
 
 
 def first_name_validator(first_name):
-    if not (type(first_name) == str and re.match(r"^[a-z]{2,20}$", first_name)):
+    if not (type(first_name) == str and re.match(r"^[a-zA-Z\s]{2,20}$", first_name)):
         raise ValueError("Invalid first_name !!!")
     else:
         return first_name

@@ -77,6 +77,8 @@ python app.py
 
 ## 🧠 Project Structure
 
+```bash
+
 Cars_Company/
 │
 ├── app.py                      # Entry point to run the whole application

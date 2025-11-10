@@ -7,7 +7,7 @@ class EmployeeView:
     def __init__(self):
         self.window = Tk()
         self.window.title("Employee")
-        self.window.geometry("1000x400")
+        self.window.geometry("950x400")
 
         # id, employee_id, first_name, last_name, occupation, username, password)
 
@@ -33,8 +33,6 @@ class EmployeeView:
         Button(self.window, text="Delete", width=7, command=self.delete_click).place(x=180, y=340)
         self.reset_form()
         self.window.mainloop()
-
-        # id, employee_id, first_name, last_name, occupation, username, password)
 
     def save_click(self):
         status, message = EmployeeController.save(self.employee_id.get(), self.first_name.get(), self.last_name.get(),

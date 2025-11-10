@@ -1,10 +1,16 @@
 import sqlite3
+from repository import DB_PATH
 from model import Car
 
 
 class CarRepository:
+    def __init__(self):
+        self.db_path = DB_PATH
+        self.connection = None
+        self.cursor = None
+
     def connect(self):
-        self.connection = sqlite3.connect("../db/cars_co_db.db")
+        self.connection = sqlite3.connect(self.db_path)
         self.cursor = self.connection.cursor()
 
     def disconnect(self):

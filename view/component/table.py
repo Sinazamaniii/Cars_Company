@@ -28,15 +28,12 @@ class Table:
             self.table.heading(col, text=headings[col])
             self.table.column(col, width=column_widths[col])
 
-        # Calculate scrollbar position (to the right of the table)
         scrollbar_x = x + sum(column_widths)
 
         self.table.place(x=x, y=y)
 
-        # Get the actual height of the treeview
         table_height = self.table.winfo_reqheight()
 
-        # Create vertical scrollbar with matching height
         self.scrollbar = ttk.Scrollbar(window, orient="vertical", command=self.table.yview)
         self.table.configure(yscrollcommand=self.scrollbar.set)
         self.scrollbar.place(x=scrollbar_x, y=y, height=table_height)

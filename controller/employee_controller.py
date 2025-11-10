@@ -57,3 +57,18 @@ class EmployeeController:
         except Exception as e:
             Logger.error(f"{e} With Id {id}")
             return False, e
+
+    @classmethod
+    def find_by_username_and_password(cls, username, password):
+        try:
+            status, employee = EmployeeService.find_by_username_and_password(username, password)
+
+            if status and employee:
+                Logger.info(f"Employee FindByUsernameAndPassword {username}")
+                return True, employee
+            else:
+                raise Exception("User Not Found !!!")
+
+        except Exception as e:
+            Logger.error(f"Employee FindByUsernameAndPassword Error: {e}")
+            return False, e

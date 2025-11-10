@@ -36,3 +36,7 @@ class EmployeeService:
             return employee
         else:
             raise Exception("Employee Not Found !!!")
+
+    @classmethod
+    def find_by_username_and_password(cls, username, password):
+        return cls.employee_repository.find_by_username_and_password(username, password)

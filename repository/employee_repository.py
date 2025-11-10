@@ -1,10 +1,16 @@
 import sqlite3
+from repository import DB_PATH
 from model import Employee
 
 
 class EmployeeRepository:
+    def __init__(self):
+        self.db_path = DB_PATH
+        self.connection = None
+        self.cursor = None
+
     def connect(self):
-        self.connection = sqlite3.connect("../db/cars_co_db.db")
+        self.connection = sqlite3.connect(self.db_path)
         self.cursor = self.connection.cursor()
 
     def disconnect(self):
@@ -57,3 +63,12 @@ class EmployeeRepository:
         if employee:
             return Employee(*employee)
         return None
+
+    def find_by_username_and_password(self, username, password):
+        self.connect()
+        self.cursor.execute("select * from employees where username=?", [username])
+        row = self.cursor.fetchone()
+        self.disconnect()
+        if row:
+            return True, Employee(*row)
+        return False, None

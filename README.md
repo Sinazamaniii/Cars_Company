@@ -80,48 +80,75 @@ python app.py
 
 Cars_Company/
 │
-├── app.py # Entry point to launch the application
+├── app.py # Entry point to start the entire application
 │
-├── controller/ # Handles logic between views and models
+├── model/ # Data entities (core domain models)
 │ ├── init.py
-│ ├── employee_controller.py
-│ ├── car_controller.py
-│ ├── customer_controller.py
-│ ├── maintenance_controller.py
-│ └── sale_controller.py
+│ ├── car.py # Car entity
+│ ├── customer.py # Customer entity
+│ ├── employee.py # Employee entity
+│ ├── maintenance.py # Maintenance entity
+│ ├── sale.py # Sale entity
+│ └── session.py # Tracks logged-in employee (active session)
 │
-├── model/ # Database models and persistence layer
+├── repository/ # Database operations (CRUD for each entity)
 │ ├── init.py
-│ ├── employee.py
-│ ├── car.py
-│ ├── customer.py
-│ ├── maintenance.py
-│ ├── sale.py
-│ ├── session.py # Holds session info (logged-in user)
-│ └── repositories/ # SQLite database handlers
-│ ├── init.py
-│ ├── employee_repository.py
 │ ├── car_repository.py
 │ ├── customer_repository.py
+│ ├── employee_repository.py
 │ ├── maintenance_repository.py
 │ └── sale_repository.py
 │
-├── view/ # Tkinter UI layer
+├── service/ # Business logic layer (between controller and repo)
 │ ├── init.py
-│ ├── dashboard_view.py # Central hub for navigation
-│ ├── login_view.py # Login and guest access
-│ ├── car_view.py # Manage car records
-│ ├── customer_view.py # Manage customer data
-│ ├── employee_view.py # Manage employee profiles
-│ ├── maintenance_view.py # Track maintenance records
-│ ├── sale_view.py # Handle sales
-│ ├── component/ # Shared visual widgets
+│ ├── car_service.py
+│ ├── customer_service.py
+│ ├── employee_service.py
+│ ├── maintenance_service.py
+│ └── sale_service.py
+│
+├── controller/ # Coordinates view actions and service calls
+│ ├── init.py
+│ ├── car_controller.py
+│ ├── customer_controller.py
+│ ├── employee_controller.py
+│ ├── maintenance_controller.py
+│ └── sale_controller.py
+│
+├── tools/ # Input validators and shared utilities
+│ ├── init.py
+│ ├── customer_validator.py
+│ ├── employee_validator.py
+│ ├── car_validator.py
+│ ├── maintenance_validator.py
+│ └── sale_validator.py
+│
+├── view/ # Tkinter GUI (presentation layer)
+│ ├── init.py
+│ ├── dashboard_view.py # Main dashboard (central navigation)
+│ ├── login_view.py # Login and guest mode
+│ ├── car_view.py # Car management UI
+│ ├── customer_view.py # Customer management UI
+│ ├── employee_view.py # Employee management UI
+│ ├── maintenance_view.py # Maintenance management UI
+│ ├── sale_view.py # Sales management UI
+│ │
+│ ├── component/ # Reusable UI elements
 │ │ ├── init.py
-│ │ ├── label_with_entry.py # Custom label-entry combo
-│ │ └── table.py # Table for displaying lists
-│ └── images/ # Image assets (logos, icons)
+│ │ ├── label_with_entry.py # Custom Label+Entry widget
+│ │ └── table.py # Custom table display
+│ │
+│ └── images/ # App visuals and icons
 │ ├── logo.png
 │ └── user.png
+│
+├── test/ # Unit and integration tests
+│ ├── init.py
+│ ├── customer_test.py
+│ ├── employee_test.py
+│ ├── car_test.py
+│ ├── maintenance_test.py
+│ └── sale_test.py
 │
 └── db/
 └── cars_co_db.db # SQLite database file

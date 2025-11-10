@@ -17,7 +17,7 @@ class LoginView:
         self.window.config(background="white")
         self.window.geometry("300x550")
 
-        image = PILImage.open("images/user.png")
+        image = PILImage.open("view/images/user.png")
         image = image.resize((160, 160), PILImage.LANCZOS)
         self.image = ImageTk.PhotoImage(image)
         Label(self.window, image=self.image, bg="white").place(x=70, y=25)

@@ -5,8 +5,8 @@ from PIL import Image as PILImage
 
 from controller import EmployeeController
 from model import Session
-
-from view.dashboard_view import DashboardView
+from view import DashboardView
+from view import LabelWithEntry
 
 
 class LoginView:
@@ -17,23 +17,20 @@ class LoginView:
         self.window.config(background="white")
         self.window.geometry("300x550")
 
-        image = PILImage.open("view/images/user.png")
+        image = PILImage.open("./view/images/user.png")
         image = image.resize((160, 160), PILImage.LANCZOS)
         self.image = ImageTk.PhotoImage(image)
         Label(self.window, image=self.image, bg="white").place(x=70, y=25)
 
-        self.username_label = Label(self.window, text="Username:", bg="white", font=("Arial", 12))
-        self.username_label.place(x=30, y=250)
-        self.username_entry = Entry(self.window, width=25, font=("Arial", 12))
-        self.username_entry.place(x=30, y=275)
+        self.username = LabelWithEntry(
+            self.window, "Username", 30, 250, distance=100, data_type=StringVar
+        )
+        self.password = LabelWithEntry(
+            self.window, "Password", 30, 310, distance=100, data_type=StringVar
+        )
 
-        self.password_label = Label(self.window, text="Password:", bg="white", font=("Arial", 12))
-        self.password_label.place(x=30, y=310)
-        self.password_entry = Entry(self.window, width=25, show="*", font=("Arial", 12))
-        self.password_entry.place(x=30, y=335)
-
-        self.username_entry.insert(0, "reza4321")
-        self.password_entry.insert(0, "ali12345678")
+        self.username.set("reza4321")
+        self.password.set("ali12345678")
 
         Button(
             self.window,
@@ -57,8 +54,8 @@ class LoginView:
         self.window.mainloop()
 
     def login(self):
-        username = self.username_entry.get()
-        password = self.password_entry.get()
+        username = self.username.get()
+        password = self.password.get()
 
         status, employee = self.employee_controller.find_by_username_and_password(username, password)
 

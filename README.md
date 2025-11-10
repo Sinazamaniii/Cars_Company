@@ -60,15 +60,14 @@ Each module (Cars, Customers, Employees, Maintenance, Sales) is implemented as a
 
 ### 1️⃣ Clone the Repository
 
-git clone https://github.com/<your-username>/Cars_Company.git
-cd Cars_Company
+git clone [https://github.com/<your-username>/Cars_Company.git](https://github.com/Sinazamaniii/Cars_Company)
 
 ---
 
 ## 🖥️ Run Application
 
 # 1️⃣ Navigate to your project folder
-cd Cars_Company
+Cars_Company
 
 # 2️⃣ Run the main entry point
 python app.py

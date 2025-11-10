@@ -80,46 +80,48 @@ python app.py
 
 Cars_Company/
 │
-├── app.py                      # Entry point to run the whole application
+├── app.py # Entry point to launch the application
 │
-├── controller/                 # Handles all business logic and coordination
-│   ├── __init__.py
-│   ├── employee_controller.py
-│   ├── car_controller.py
-│   ├── customer_controller.py
-│   ├── maintenance_controller.py
-│   └── sale_controller.py
+├── controller/ # Handles logic between views and models
+│ ├── init.py
+│ ├── employee_controller.py
+│ ├── car_controller.py
+│ ├── customer_controller.py
+│ ├── maintenance_controller.py
+│ └── sale_controller.py
 │
-├── model/                      # Database models and logic
-│   ├── __init__.py
-│   ├── employee.py
-│   ├── car.py
-│   ├── customer.py
-│   ├── maintenance.py
-│   ├── sale.py
-│   ├── session.py              # Holds logged-in user session
-│   └── repositories/           # SQLite repositories
-│       ├── employee_repository.py
-│       ├── car_repository.py
-│       ├── customer_repository.py
-│       ├── maintenance_repository.py
-│       └── sale_repository.py
+├── model/ # Database models and persistence layer
+│ ├── init.py
+│ ├── employee.py
+│ ├── car.py
+│ ├── customer.py
+│ ├── maintenance.py
+│ ├── sale.py
+│ ├── session.py # Holds session info (logged-in user)
+│ └── repositories/ # SQLite database handlers
+│ ├── init.py
+│ ├── employee_repository.py
+│ ├── car_repository.py
+│ ├── customer_repository.py
+│ ├── maintenance_repository.py
+│ └── sale_repository.py
 │
-├── view/                       # User interface (Tkinter-based)
-│   ├── __init__.py
-│   ├── dashboard_view.py       # Central dashboard
-│   ├── login_view.py           # Login & guest mode
-│   ├── car_view.py
-│   ├── customer_view.py
-│   ├── employee_view.py
-│   ├── maintenance_view.py
-│   ├── sale_view.py
-│   ├── component/              # Shared UI widgets
-│   │   ├── table.py
-│   │   └── label_with_entry.py
-│   └── images/                 # App icons and logos
-│       ├── logo.png
-│       └── user.png
+├── view/ # Tkinter UI layer
+│ ├── init.py
+│ ├── dashboard_view.py # Central hub for navigation
+│ ├── login_view.py # Login and guest access
+│ ├── car_view.py # Manage car records
+│ ├── customer_view.py # Manage customer data
+│ ├── employee_view.py # Manage employee profiles
+│ ├── maintenance_view.py # Track maintenance records
+│ ├── sale_view.py # Handle sales
+│ ├── component/ # Shared visual widgets
+│ │ ├── init.py
+│ │ ├── label_with_entry.py # Custom label-entry combo
+│ │ └── table.py # Table for displaying lists
+│ └── images/ # Image assets (logos, icons)
+│ ├── logo.png
+│ └── user.png
 │
 └── db/
-    └── cars_co_db.db           # SQLite database file
+└── cars_co_db.db # SQLite database file

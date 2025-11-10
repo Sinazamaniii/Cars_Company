@@ -59,9 +59,11 @@ Each module (Cars, Customers, Employees, Maintenance, Sales) is implemented as a
 ## 🖥️ Installation & Setup
 
 ### 1️⃣ Clone the Repository
-```bash
+
 git clone https://github.com/<your-username>/Cars_Company.git
 cd Cars_Company
+
+---
 
 ## 🖥️ Run Application
 
@@ -70,6 +72,8 @@ cd Cars_Company
 
 # 2️⃣ Run the main entry point
 python app.py
+
+---
 
 ## 🧠 Project Structure
 

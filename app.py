@@ -1,3 +1,3 @@
-from login_view import LoginView, DashboardView
+from view.login_view import LoginView
 
 ui = LoginView()

@@ -62,3 +62,59 @@ Each module (Cars, Customers, Employees, Maintenance, Sales) is implemented as a
 ```bash
 git clone https://github.com/<your-username>/Cars_Company.git
 cd Cars_Company
+
+## 🖥️ Run Application
+
+# 1️⃣ Navigate to your project folder
+cd Cars_Company
+
+# 2️⃣ Run the main entry point
+python app.py
+
+## 🧠 Project Structure
+
+Cars_Company/
+│
+├── app.py                      # Entry point to run the whole application
+│
+├── controller/                 # Handles all business logic and coordination
+│   ├── __init__.py
+│   ├── employee_controller.py
+│   ├── car_controller.py
+│   ├── customer_controller.py
+│   ├── maintenance_controller.py
+│   └── sale_controller.py
+│
+├── model/                      # Database models and logic
+│   ├── __init__.py
+│   ├── employee.py
+│   ├── car.py
+│   ├── customer.py
+│   ├── maintenance.py
+│   ├── sale.py
+│   ├── session.py              # Holds logged-in user session
+│   └── repositories/           # SQLite repositories
+│       ├── employee_repository.py
+│       ├── car_repository.py
+│       ├── customer_repository.py
+│       ├── maintenance_repository.py
+│       └── sale_repository.py
+│
+├── view/                       # User interface (Tkinter-based)
+│   ├── __init__.py
+│   ├── dashboard_view.py       # Central dashboard
+│   ├── login_view.py           # Login & guest mode
+│   ├── car_view.py
+│   ├── customer_view.py
+│   ├── employee_view.py
+│   ├── maintenance_view.py
+│   ├── sale_view.py
+│   ├── component/              # Shared UI widgets
+│   │   ├── table.py
+│   │   └── label_with_entry.py
+│   └── images/                 # App icons and logos
+│       ├── logo.png
+│       └── user.png
+│
+└── db/
+    └── cars_co_db.db           # SQLite database file

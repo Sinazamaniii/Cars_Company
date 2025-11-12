@@ -88,8 +88,4 @@ class CarView:
             messagebox.showerror("Select", "Select Car")
 
     def refresh(self):
-        pass
-
-
-# if __name__ == "__main__":
-#     CarView()
+        self.reset_form()

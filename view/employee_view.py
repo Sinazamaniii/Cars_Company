@@ -92,7 +92,4 @@ class EmployeeView:
             messagebox.showerror("Select", "Select Employee")
 
     def refresh(self):
-        pass
-
-# if __name__ == "__main__":
-# EmployeeView()
+        self.reset_form()

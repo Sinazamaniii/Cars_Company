@@ -88,7 +88,4 @@ class MaintenanceView:
             messagebox.showerror("Select", "Select Maintenance")
 
     def refresh(self):
-        pass
-
-# if __name__ == "__main__":
-#     MaintenanceView()
+        self.reset_form()

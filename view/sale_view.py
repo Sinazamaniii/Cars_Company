@@ -93,7 +93,4 @@ class SaleView:
             messagebox.showerror("Select", "Select Sale")
 
     def refresh(self):
-        pass
-
-# if __name__ == "__main__":
-#     SaleView()
+        self.reset_form()

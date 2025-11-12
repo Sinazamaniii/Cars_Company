@@ -89,7 +89,7 @@ class CustomerView:
         status, customer_list = CustomerController.find_all()
         if not Session.employee:
             for customer in customer_list:
-                customer.address = "Hidden"
+                customer.address = "No Access"
         self.table.refresh_table(customer_list)
 
     def select_from_table(self, selected_customer):
@@ -105,7 +105,7 @@ class CustomerView:
                 if Session.employee:
                     self.address.set(customer.address)
                 else:
-                    self.address.set("Hidden")
+                    self.address.set("No Access")
 
     def select_customer(self):
         if self.id.get():
